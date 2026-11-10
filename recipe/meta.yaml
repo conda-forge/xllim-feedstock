@@ -1,5 +1,5 @@
 {% set name = "xllim" %}
-{% set version = "2.0.11" %}
+{% set version = "2.0.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/x/xllim/xllim-{{ version }}.tar.gz
-  sha256: 7f7f025f5699a427bc8fa5d3ec7ab9fdac487937fa0cc0d89585554215c6c5c0
+  sha256: 78931a8e7aa4acc9ea45de78945405d3cdd43afa640478406421fb161bc340aa
 
 build:
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [py<311 or py>=313]  # >=3.11 requirement from NumPy 2, <3.13 from CARMA 
+  skip: true  # [py<311 or py>=313]
 
 requirements:
   build:
@@ -31,7 +31,7 @@ requirements:
     - pip
     - setuptools >=42
     - wheel
-    - scikit-build-core >=0.7.0,<1  
+    - scikit-build-core >=0.7.0,<1
     - numpy  # numpy build version is decided by the conda-forge-pinning-feedstock, cannot constrain it here. Good news, it's numpy 2
     - boost  # Letting boost use the global pin to be compatible with other packages (and be rebuilt accordingly)
     - armadillo >=12.6,<13  # 12.6 minimum tested; <13 bounds to compatible major ABI. Pulls libblas & liblapack.
