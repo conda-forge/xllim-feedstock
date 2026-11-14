@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/x/xllim/xllim-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/x/xllim/xllim-{{ version }}.tar.gz
   sha256: 78931a8e7aa4acc9ea45de78945405d3cdd43afa640478406421fb161bc340aa
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<311 or py>=313]
